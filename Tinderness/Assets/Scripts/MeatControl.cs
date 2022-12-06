@@ -6,10 +6,11 @@ public class MeatControl : MonoBehaviour
 {
     public float swipeSpeed;
     public Transform destination;
+    Animator meatAnim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        meatAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,7 +21,30 @@ public class MeatControl : MonoBehaviour
             Debug.Log("I ran");
             //float x = transform.position.x + swipeSpeed * Time.deltaTime;
             //transform.position = new Vector2(x, transform.position.y);
-            transform.Translate(destination.position);
-        }    
+            //transform.Translate(destination.position);
+            //LerpMeat(new Vector2(-10, 0), 2);
+            meatAnim.Play("MeatLeft");
+
+        }
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            meatAnim.Play("MeatRight");
+        }
+        if (transform.position.x <= -11.5 || transform.position.x >= 11.5)
+        {
+            Destroy(gameObject);
+        }
+    }
+    IEnumerator LerpMeat(Vector2 targetpos, float duration)
+    {
+        float time = 0;
+        Vector2 startPos = transform.position;
+        while (time < duration)
+        {
+            transform.position = Vector2.Lerp(startPos, targetpos, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetpos;
     }
 }
