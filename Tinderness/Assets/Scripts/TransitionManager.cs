@@ -4,38 +4,34 @@ using UnityEngine;
 
 public class TransitionManager : MonoBehaviour
 {
-    public GameObject StartScreen;
-    public GameObject SelectionScreen;
+    public GameObject startScreen;
+    public GameObject selectionScreen;
+    public bool greenGood;
+    public bool redGood;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartOff()
     {
-        StartScreen.SetActive(false);
-        SelectionScreen.SetActive(true);
+        startScreen.SetActive(false);
+        selectionScreen.SetActive(true);
     }
 
     public void SelectionOff()
     {
-        SelectionScreen.SetActive(false);
+        selectionScreen.SetActive(false);
     }
 
     public void SelectGreenM()
     {
         SelectionOff();
+        greenGood = true;
+        redGood = false; 
     }
 
     public void SelectRedM()
     {
         SelectionOff();
+        redGood = true;
+        greenGood = false;
     }
 }

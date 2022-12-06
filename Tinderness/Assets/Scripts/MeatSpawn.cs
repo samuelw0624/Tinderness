@@ -17,13 +17,10 @@ public class MeatSpawn : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("meat");
-        if (collision = null)
-        {
-            Debug.Log("no meat");
-            Instantiate(meats[Random.Range(0, meats.Length)], SpawnPos.transform.position, Quaternion.identity);
-        }
+        Debug.Log("no meat");
+        Instantiate(meats[Random.Range(0, meats.Length)], SpawnPos.transform.position, Quaternion.identity);
     }
 }
