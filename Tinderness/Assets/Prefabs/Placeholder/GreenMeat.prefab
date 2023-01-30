@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2585248271679869474}
   m_Layer: 0
   m_Name: GreenMeat
-  m_TagString: Untagged
+  m_TagString: green meat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
