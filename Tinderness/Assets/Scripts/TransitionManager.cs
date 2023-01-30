@@ -6,6 +6,7 @@ public class TransitionManager : MonoBehaviour
 {
     public GameObject startScreen;
     public GameObject selectionScreen;
+    public GameObject influencer;
     public bool greenGood;
     public bool redGood;
     // Start is called before the first frame update
@@ -13,12 +14,14 @@ public class TransitionManager : MonoBehaviour
     public void StartOff()
     {
         startScreen.SetActive(false);
-        selectionScreen.SetActive(true);
+        influencer.SetActive(true);
+        //selectionScreen.SetActive(true);
     }
 
     public void SelectionOff()
     {
-        selectionScreen.SetActive(false);
+        //selectionScreen.SetActive(false);
+        influencer.SetActive(true);
     }
 
     public void SelectGreenM()
